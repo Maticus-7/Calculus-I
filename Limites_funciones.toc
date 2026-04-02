@@ -1,8 +1,0 @@
-\babel@toc {spanish}{}\relax 
-\beamer@sectionintoc {1}{Introducción a los límites}{3}{0}{1}
-\beamer@sectionintoc {2}{Definiciones}{4}{0}{2}
-\beamer@sectionintoc {3}{Teoremas fundamentales}{6}{0}{3}
-\beamer@sectionintoc {4}{Corolarios}{8}{0}{4}
-\beamer@sectionintoc {5}{Ejemplos}{9}{0}{5}
-\beamer@sectionintoc {6}{Propiedades de los límites}{12}{0}{6}
-\beamer@sectionintoc {7}{Bibliografía}{13}{0}{7}
