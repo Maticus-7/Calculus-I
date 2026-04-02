@@ -1,0 +1,157 @@
+\documentclass[10pt, spanish]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+% Tema y color
+\usetheme{Madrid}
+\usecolortheme{default}
+
+% Datos de la presentación
+\title[Cálculo I - Semana 3]{Cálculo I \\ Tipos de funciones, monotonía e inversa}
+\author[Matihus A. Molina Larios]{Matihus Alberth Molina Larios}
+\institute[UNMSM]{
+	Universidad Nacional Mayor de San Marcos \\
+	Facultad de Ciencias Matemáticas \\
+	\texttt{matihus.molina@unmsm.edu.pe}
+}
+\date{\today}
+
+% Redefinir entornos
+\newtheorem{definicion}{Definición}
+\newtheorem{teorema}{Teorema}
+\newtheorem{corolario}{Corolario}
+\newtheorem{ejemplo}{Ejemplo}
+\newtheorem{nota}{Nota}
+
+\setbeamertemplate{theorem}[ams style]
+
+\begin{document}
+	
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+	\begin{frame}{Contenido}
+		\tableofcontents
+	\end{frame}
+	
+	\section{Clasificación de funciones}
+	\subsection{Funciones inyectivas, sobreyectivas y biyectivas}
+	\begin{frame}{Funciones inyectivas}
+		\begin{definicion}[Inyectiva]
+			Una función $f:A\to B$ es \textit{inyectiva} (o uno a uno) si para todo $x_1,x_2\in A$, $f(x_1)=f(x_2)$ implica $x_1=x_2$.
+		\end{definicion}
+		\begin{ejemplo}
+			$f(x)=2x+1$ es inyectiva, pero $f(x)=x^2$ no lo es en $\mathbb{R}$.
+		\end{ejemplo}
+	\end{frame}
+	
+	\begin{frame}{Funciones sobreyectivas}
+		\begin{definicion}[Sobreyectiva]
+			$f:A\to B$ es \textit{sobreyectiva} si para cada $y\in B$ existe $x\in A$ tal que $f(x)=y$.
+		\end{definicion}
+		\begin{ejemplo}
+			$f:\mathbb{R}\to\mathbb{R}$, $f(x)=x^3$ es sobreyectiva; $f(x)=x^2$ no lo es.
+		\end{ejemplo}
+	\end{frame}
+	
+	\begin{frame}{Funciones biyectivas}
+		\begin{definicion}[Biyectiva]
+			$f$ es \textit{biyectiva} si es inyectiva y sobreyectiva.
+		\end{definicion}
+		\begin{teorema}
+			Una función $f:A\to B$ es biyectiva si y solo si existe una función $g:B\to A$ tal que $g\circ f = \operatorname{id}_A$ y $f\circ g = \operatorname{id}_B$.
+		\end{teorema}
+		\begin{proof}
+			Si $f$ es biyectiva, para cada $y\in B$ existe un único $x\in A$ con $f(x)=y$; definimos $g(y)=x$. Claramente $g$ cumple las igualdades. Recíprocamente, si existe tal $g$, entonces $f$ es inyectiva y sobreyectiva.
+		\end{proof}
+	\end{frame}
+	
+	\subsection{Interpretación gráfica}
+	\begin{frame}{Prueba de la recta horizontal}
+		\begin{teorema}[Prueba de la recta horizontal]
+			Una función es inyectiva si y solo si toda recta horizontal intersecta su gráfica a lo sumo una vez.
+		\end{teorema}
+		\begin{ejemplo}
+			La gráfica de $f(x)=x^3$ cumple la prueba, la de $f(x)=x^2$ no.
+		\end{ejemplo}
+	\end{frame}
+	
+	\section{Funciones monótonas}
+	\subsection{Crecientes y decrecientes}
+	\begin{frame}{Definiciones}
+		\begin{definicion}
+			Sea $f:I\to\mathbb{R}$, $I$ intervalo.
+			\begin{itemize}
+				\item $f$ es \textbf{creciente} si $x_1<x_2 \Rightarrow f(x_1)\le f(x_2)$.
+				\item $f$ es \textbf{estrictamente creciente} si $x_1<x_2 \Rightarrow f(x_1)<f(x_2)$.
+				\item $f$ es \textbf{decreciente} si $x_1<x_2 \Rightarrow f(x_1)\ge f(x_2)$.
+				\item $f$ es \textbf{estrictamente decreciente} si $x_1<x_2 \Rightarrow f(x_1)>f(x_2)$.
+			\end{itemize}
+		\end{definicion}
+	\end{frame}
+	
+	\begin{frame}{Relación con la derivada (introducción)}
+		\begin{teorema}
+			Si $f$ es derivable en un intervalo $I$, entonces:
+			\begin{itemize}
+				\item $f'(x)\ge 0$ para todo $x\in I$ implica $f$ creciente.
+				\item $f'(x)\le 0$ para todo $x\in I$ implica $f$ decreciente.
+			\end{itemize}
+		\end{teorema}
+		\begin{ejemplo}
+			$f(x)=x^3-3x$ tiene derivada $f'(x)=3x^2-3$. Es creciente en $(-\infty,-1]\cup[1,\infty)$ y decreciente en $[-1,1]$.
+		\end{ejemplo}
+	\end{frame}
+	
+	\subsection{Problemas de aplicación}
+	\begin{frame}{Ejemplo aplicado}
+		\begin{ejemplo}
+			Un fabricante determina que el costo de producir $x$ unidades está dado por $C(x)=0.02x^3-0.5x^2+10x+500$. Encontrar el intervalo donde el costo es creciente.
+		\end{ejemplo}
+		\begin{proof}
+			$C'(x)=0.06x^2-x+10$. Resolviendo $C'(x)=0$: $0.06x^2-x+10=0$ $\Rightarrow$ $3x^2-50x+500=0$. El discriminante es $2500-6000=-3500<0$, luego $C'(x)>0$ para todo $x$. Por tanto $C$ es creciente para todo $x$.
+		\end{proof}
+	\end{frame}
+	
+	\section{Función inversa}
+	\subsection{Definición y propiedades}
+	\begin{frame}{Definición de función inversa}
+		\begin{definicion}
+			Si $f:A\to B$ es biyectiva, su \textit{función inversa} $f^{-1}:B\to A$ está definida por
+			\[
+			f^{-1}(y)=x \quad \Longleftrightarrow \quad f(x)=y.
+			\]
+		\end{definicion}
+		\begin{teorema}
+			La gráfica de $f^{-1}$ es la reflexión de la gráfica de $f$ respecto a la recta $y=x$.
+		\end{teorema}
+		\begin{corolario}
+			Si $f$ es estrictamente monótona en un intervalo, entonces es inyectiva y posee inversa definida en su rango.
+		\end{corolario}
+	\end{frame}
+	
+	\begin{frame}{Ejemplo: función inversa}
+		\begin{ejemplo}
+			Hallar la inversa de $f(x)=\frac{2x-1}{x+3}$.
+		\end{ejemplo}
+		\begin{proof}
+			$y=\frac{2x-1}{x+3}$ $\Rightarrow$ $y(x+3)=2x-1$ $\Rightarrow$ $yx+3y=2x-1$ $\Rightarrow$ $yx-2x=-1-3y$ $\Rightarrow$ $x(y-2)=-(1+3y)$ $\Rightarrow$ $x=\frac{1+3y}{2-y}$. Luego $f^{-1}(y)=\frac{1+3y}{2-y}$.
+		\end{proof}
+	\end{frame}
+	
+	\section{Bibliografía}
+	\begin{frame}{Referencias}
+		\begin{thebibliography}{9}
+			\bibitem{spivak} Michael Spivak, \textit{Cálculo infinitesimal}, Editorial Reverté, 1998.
+			\bibitem{stewart} James Stewart, \textit{Cálculo de una variable}, Cengage Learning, 2017.
+			\bibitem{apostol} Tom M. Apostol, \textit{Cálculo}, Vol. I, Reverté, 2002.
+			\bibitem{leithold} Louis Leithold, \textit{El Cálculo}, Oxford University Press, 1998.
+		\end{thebibliography}
+	\end{frame}
+	
+\end{document}

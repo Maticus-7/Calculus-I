@@ -1,0 +1,155 @@
+\documentclass[10pt, spanish]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+% Tema y color
+\usetheme{Madrid}
+\usecolortheme{default}
+
+% Datos de la presentación
+\title[Cálculo I - Semana 4]{Cálculo I \\ Funciones exponencial, logarítmica, trigonométricas e inversas}
+\author[Matihus A. Molina Larios]{Matihus Alberth Molina Larios}
+\institute[UNMSM]{
+	Universidad Nacional Mayor de San Marcos \\
+	Facultad de Ciencias Matemáticas \\
+	\texttt{matihus.molina@unmsm.edu.pe}
+}
+\date{\today}
+
+% Redefinir entornos
+\newtheorem{definicion}{Definición}
+\newtheorem{teorema}{Teorema}
+\newtheorem{corolario}{Corolario}
+\newtheorem{ejemplo}{Ejemplo}
+\newtheorem{nota}{Nota}
+
+\setbeamertemplate{theorem}[ams style]
+
+\begin{document}
+	
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+	\begin{frame}{Contenido}
+		\tableofcontents
+	\end{frame}
+	
+	\section{Función exponencial}
+	\subsection{Definición y propiedades}
+	\begin{frame}{Función exponencial}
+		\begin{definicion}
+			Para $a>0$, $a\neq1$, la función exponencial de base $a$ es $f(x)=a^x$, definida para todo $x\in\mathbb{R}$.
+		\end{definicion}
+		\begin{teorema}[Propiedades]
+			\begin{itemize}
+				\item Dominio: $\mathbb{R}$.
+				\item Rango: $(0,\infty)$.
+				\item Si $a>1$, es estrictamente creciente; si $0<a<1$, estrictamente decreciente.
+				\item $a^{x+y}=a^x a^y$, $a^{x-y}=a^x/a^y$, $(a^x)^y=a^{xy}$.
+			\end{itemize}
+		\end{teorema}
+	\end{frame}
+	
+	\begin{frame}{Gráfica y aplicaciones}
+		\begin{ejemplo}
+			Graficar $f(x)=2^x$ y $g(x)=\left(\frac12\right)^x$.
+		\end{ejemplo}
+		\begin{proof}
+			Ambas pasan por $(0,1)$. $2^x$ crece rápidamente, $\left(\frac12\right)^x$ decrece. El rango es $(0,\infty)$.
+		\end{proof}
+	\end{frame}
+	
+	\section{Función logarítmica}
+	\subsection{Definición como inversa de la exponencial}
+	\begin{frame}{Logaritmo}
+		\begin{definicion}
+			El logaritmo en base $a$ ($a>0$, $a\neq1$) es la función inversa de $a^x$:
+			\[
+			\log_a x = y \quad \Longleftrightarrow \quad a^y = x, \quad x>0.
+			\]
+		\end{definicion}
+		\begin{teorema}[Propiedades]
+			\begin{itemize}
+				\item Dominio: $(0,\infty)$.
+				\item Rango: $\mathbb{R}$.
+				\item $\log_a(xy)=\log_a x+\log_a y$, $\log_a(x/y)=\log_a x-\log_a y$, $\log_a(x^r)=r\log_a x$.
+				\item Cambio de base: $\log_a x = \frac{\log_b x}{\log_b a}$.
+			\end{itemize}
+		\end{teorema}
+	\end{frame}
+	
+	\begin{frame}{Dominio y rango}
+		\begin{ejemplo}
+			Determinar dominio de $f(x)=\ln(x^2-4)$.
+		\end{ejemplo}
+		\begin{proof}
+			Se requiere $x^2-4>0$, es decir $|x|>2$. Luego $\operatorname{Dom}(f)=(-\infty,-2)\cup(2,\infty)$. El rango es $\mathbb{R}$.
+		\end{proof}
+	\end{frame}
+	
+	\section{Funciones trigonométricas}
+	\subsection{Definiciones y propiedades básicas}
+	\begin{frame}{Funciones seno y coseno}
+		\begin{definicion}
+			Para un ángulo $x$ en radianes, $\sen x$ y $\cos x$ se definen mediante el círculo unitario.
+		\end{definicion}
+		\begin{teorema}[Propiedades]
+			\begin{itemize}
+				\item Dominio: $\mathbb{R}$.
+				\item Rango: $[-1,1]$.
+				\item Periodicidad: $\sen(x+2\pi)=\sen x$, $\cos(x+2\pi)=\cos x$.
+				\item Identidad fundamental: $\sen^2 x+\cos^2 x=1$.
+			\end{itemize}
+		\end{teorema}
+	\end{frame}
+	
+	\begin{frame}{Tangente y otras funciones}
+		\begin{definicion}
+			$\tan x = \frac{\sen x}{\cos x}$, $\cot x = \frac{\cos x}{\sen x}$, $\sec x = \frac{1}{\cos x}$, $\csc x = \frac{1}{\sen x}$.
+		\end{definicion}
+		\begin{ejemplo}
+			Dominio de $\tan x$: $\mathbb{R}\setminus\{\frac{\pi}{2}+k\pi,\ k\in\mathbb{Z}\}$. Rango: $\mathbb{R}$.
+		\end{ejemplo}
+	\end{frame}
+	
+	\section{Funciones trigonométricas inversas}
+	\subsection{Definiciones y dominios restringidos}
+	\begin{frame}{Arcoseno, arcocoseno y arcotangente}
+		\begin{definicion}
+			Para obtener funciones inversas, restringimos los dominios:
+			\begin{itemize}
+				\item $\arcsen x$: dominio $[-1,1]$, rango $[-\pi/2,\pi/2]$.
+				\item $\arccos x$: dominio $[-1,1]$, rango $[0,\pi]$.
+				\item $\arctan x$: dominio $\mathbb{R}$, rango $(-\pi/2,\pi/2)$.
+			\end{itemize}
+		\end{definicion}
+		\begin{teorema}
+			$\arcsen(\sen x)=x$ para $x\in[-\pi/2,\pi/2]$, pero no para todo $x$.
+		\end{teorema}
+	\end{frame}
+	
+	\begin{frame}{Ejemplo: dominio y rango}
+		\begin{ejemplo}
+			Hallar dominio y rango de $f(x)=\arcsen(2x-1)$.
+		\end{ejemplo}
+		\begin{proof}
+			Dominio: $-1\le 2x-1\le 1 \Rightarrow 0\le 2x\le 2 \Rightarrow 0\le x\le 1$. Rango: $[-\pi/2,\pi/2]$.
+		\end{proof}
+	\end{frame}
+	
+	\section{Bibliografía}
+	\begin{frame}{Referencias}
+		\begin{thebibliography}{9}
+			\bibitem{spivak} Michael Spivak, \textit{Cálculo infinitesimal}, Editorial Reverté, 1998.
+			\bibitem{stewart} James Stewart, \textit{Cálculo de una variable}, Cengage Learning, 2017.
+			\bibitem{apostol} Tom M. Apostol, \textit{Cálculo}, Vol. I, Reverté, 2002.
+			\bibitem{leithold} Louis Leithold, \textit{El Cálculo}, Oxford University Press, 1998.
+		\end{thebibliography}
+	\end{frame}
+	
+\end{document}

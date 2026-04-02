@@ -1,0 +1,208 @@
+\documentclass[10pt, spanish]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+% Tema y color
+\usetheme{Madrid}
+\usecolortheme{default}
+
+% Datos de la presentación
+\title[Relaciones y Funciones]{Cálculo I \\ Relaciones y Funciones}
+\author[M. A. Molina]{Matihus Alberth Molina Larios}
+\institute[UNMSM]{
+	Universidad Nacional Mayor de San Marcos \\
+	Facultad de Ciencias Matemáticas \\
+	\texttt{matihus.molina@unmsm.edu.pe}
+}
+\date{\today}
+
+% Redefinir entornos para que se adapten a beamer
+\newtheorem{definicion}{Definición}
+\newtheorem{teorema}{Teorema}
+\newtheorem{corolario}{Corolario}
+\newtheorem{ejemplo}{Ejemplo}
+\newtheorem{nota}{Nota}
+
+% Opciones para que los teoremas aparezcan numerados dentro de cada sección
+\setbeamertemplate{theorem}[ams style]
+
+\begin{document}
+	
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+	\begin{frame}{Contenido}
+		\tableofcontents
+	\end{frame}
+	
+	\section{Semana 1: Relaciones}
+	\subsection{Nociones preliminares y definición de relación}
+	\begin{frame}{Producto cartesiano y relación}
+		\begin{definicion}[Producto cartesiano]
+			Dados dos conjuntos $A$ y $B$, el producto cartesiano $A\times B$ es el conjunto de todos los pares ordenados $(a,b)$ con $a\in A$ y $b\in B$.
+		\end{definicion}
+		\begin{definicion}[Relación]
+			Una \textit{relación} $R$ de $A$ en $B$ es un subconjunto de $A\times B$. Se escribe $a\,R\,b$ si $(a,b)\in R$.
+		\end{definicion}
+	\end{frame}
+	
+	\subsection{Dominio, rango y gráfica}
+	\begin{frame}{Dominio, rango y gráfica}
+		\begin{definicion}
+			Dada una relación $R\subseteq A\times B$:
+			\begin{itemize}
+				\item \textbf{Dominio}: $\operatorname{Dom}(R) = \{a\in A : \exists\, b\in B,\ (a,b)\in R\}$.
+				\item \textbf{Rango}: $\operatorname{Ran}(R) = \{b\in B : \exists\, a\in A,\ (a,b)\in R\}$.
+				\item \textbf{Gráfica}: $\operatorname{Gr}(R) = \{(x,y)\in \mathbb{R}^2 : (x,y)\in R\}$.
+			\end{itemize}
+		\end{definicion}
+		\begin{ejemplo}
+			Sea $R=\{(x,y)\in\mathbb{R}^2 : y = x^2\}$. Entonces $\operatorname{Dom}(R)=\mathbb{R}$, $\operatorname{Ran}(R)=[0,\infty)$ y su gráfica es una parábola.
+		\end{ejemplo}
+	\end{frame}
+	
+	\subsection{Propiedades de las relaciones}
+	\begin{frame}{Propiedades reflexiva, simétrica y transitiva}
+		\begin{definicion}
+			Una relación $R$ en un conjunto $A$ (es decir, $R\subseteq A\times A$) es:
+			\begin{itemize}
+				\item \textbf{Reflexiva} si $\forall a\in A,\ (a,a)\in R$.
+				\item \textbf{Simétrica} si $\forall a,b\in A,\ (a,b)\in R \Rightarrow (b,a)\in R$.
+				\item \textbf{Transitiva} si $\forall a,b,c\in A,\ (a,b)\in R\ \text{y}\ (b,c)\in R \Rightarrow (a,c)\in R$.
+			\end{itemize}
+		\end{definicion}
+		\begin{ejemplo}
+			La relación $\leq$ en $\mathbb{R}$ es reflexiva, antisimétrica y transitiva, pero no es simétrica.
+		\end{ejemplo}
+	\end{frame}
+	
+	\subsection{Relación inversa}
+	\begin{frame}{Relación inversa y su gráfica}
+		\begin{definicion}
+			Dada $R\subseteq A\times B$, su \textit{relación inversa} es
+			\[
+			R^{-1} = \{(b,a)\in B\times A : (a,b)\in R\}.
+			\]
+		\end{definicion}
+		\begin{teorema}
+			La gráfica de $R^{-1}$ es la reflexión de la gráfica de $R$ respecto a la recta $y=x$.
+		\end{teorema}
+		\begin{ejemplo}
+			Si $R=\{(x,y): y=x^2\}$, entonces $R^{-1}=\{(x,y): x=y^2\}$, cuya gráfica es una parábola horizontal.
+		\end{ejemplo}
+	\end{frame}
+	
+	\section{Semana 2: Funciones}
+	\subsection{Definición de función}
+	\begin{frame}{Función como relación especial}
+		\begin{definicion}
+			Una \textit{función} $f$ de $A$ en $B$ es una relación de $A$ en $B$ tal que para cada $a\in A$ existe un único $b\in B$ con $(a,b)\in f$. Se escribe $f:A\to B$ y $f(a)=b$.
+		\end{definicion}
+		\begin{nota}
+			El dominio de una función es el conjunto de todos los $x$ para los cuales existe imagen. El rango es el conjunto de todas las imágenes.
+		\end{nota}
+	\end{frame}
+	
+	\subsection{Dominio y rango de una función}
+	\begin{frame}{Cálculo de dominio y rango}
+		\begin{ejemplo}
+			Hallar dominio y rango de $f(x)=\sqrt{x-2}$.
+			\begin{itemize}
+				\item Dominio: $x-2\ge 0 \Rightarrow x\ge 2$, es decir $\operatorname{Dom}(f)=[2,\infty)$.
+				\item Rango: para $x\ge 2$, $\sqrt{x-2}\ge 0$, luego $\operatorname{Ran}(f)=[0,\infty)$.
+			\end{itemize}
+		\end{ejemplo}
+	\end{frame}
+	
+	\subsection{Funciones especiales}
+	\begin{frame}{Funciones básicas}
+		\begin{definicion}
+			Algunas funciones elementales:
+			\begin{itemize}
+				\item \textbf{Constante}: $f(x)=c$.
+				\item \textbf{Identidad}: $f(x)=x$.
+				\item \textbf{Lineal}: $f(x)=mx+b$.
+				\item \textbf{Cuadrática}: $f(x)=ax^2+bx+c$, $a\neq0$.
+				\item \textbf{Valor absoluto}: $f(x)=|x|$.
+				\item \textbf{Raíz cuadrada}: $f(x)=\sqrt{x}$.
+			\end{itemize}
+		\end{definicion}
+	\end{frame}
+	
+	\subsection{Gráficas de funciones}
+	\begin{frame}{Interpretación geométrica}
+		\begin{teorema}[Prueba de la recta vertical]
+			Una curva en el plano es la gráfica de una función $y=f(x)$ si y solo si ninguna recta vertical la intersecta en más de un punto.
+		\end{teorema}
+		\begin{ejemplo}
+			La circunferencia $x^2+y^2=1$ no es gráfica de una función, pero $y=\sqrt{1-x^2}$ sí lo es (semicírculo superior).
+		\end{ejemplo}
+	\end{frame}
+	
+	\subsection{Operaciones con funciones y composición}
+	\begin{frame}{Álgebra de funciones}
+		\begin{definicion}
+			Sean $f,g$ funciones reales. Se definen:
+			\begin{align*}
+				(f+g)(x) &= f(x)+g(x),\\
+				(f-g)(x) &= f(x)-g(x),\\
+				(f\cdot g)(x) &= f(x)g(x),\\
+				\left(\frac{f}{g}\right)(x) &= \frac{f(x)}{g(x)},\quad g(x)\neq0.
+			\end{align*}
+		\end{definicion}
+	\end{frame}
+	
+	\begin{frame}{Composición de funciones}
+		\begin{definicion}
+			Dadas $f:A\to B$ y $g:B\to C$, la \textit{función compuesta} $g\circ f:A\to C$ es
+			\[
+			(g\circ f)(x) = g(f(x)).
+			\]
+		\end{definicion}
+		\begin{teorema}[Asociatividad]
+			La composición de funciones es asociativa: $(h\circ g)\circ f = h\circ (g\circ f)$.
+		\end{teorema}
+		\begin{proof}
+			Para todo $x$ en el dominio correspondiente,
+			\[
+			((h\circ g)\circ f)(x) = (h\circ g)(f(x)) = h(g(f(x))) = h((g\circ f)(x)) = (h\circ (g\circ f))(x).
+			\]
+		\end{proof}
+	\end{frame}
+	
+	\subsection{Funciones definidas por partes}
+	\begin{frame}{Funciones a trozos}
+		\begin{definicion}
+			Una función \textit{definida por partes} (o a trozos) es aquella cuya expresión cambia según el intervalo donde se evalúa.
+		\end{definicion}
+		\begin{ejemplo}
+			La función valor absoluto $|x| = \begin{cases} x, & x\ge 0 \\ -x, & x<0 \end{cases}$.
+		\end{ejemplo}
+		\begin{ejemplo}
+			La función signo:
+			\[
+			\operatorname{sgn}(x) = \begin{cases}
+				1, & x>0,\\
+				0, & x=0,\\
+				-1, & x<0.
+			\end{cases}
+			\]
+		\end{ejemplo}
+	\end{frame}
+	
+	\section{Bibliografía}
+	\begin{frame}{Referencias}
+		\begin{thebibliography}{9}
+			\bibitem{spivak} Michael Spivak, \textit{Cálculo infinitesimal}, Editorial Reverté, 1998.
+			\bibitem{stewart} James Stewart, \textit{Cálculo de una variable}, Cengage Learning, 2017.
+			\bibitem{apostol} Tom M. Apostol, \textit{Cálculo}, Vol. I, Reverté, 2002.
+			\bibitem{leithold} Louis Leithold, \textit{El Cálculo}, Oxford University Press, 1998.
+		\end{thebibliography}
+	\end{frame}
+	
+\end{document}

@@ -1,0 +1,10 @@
+\babel@toc {spanish}{}\relax 
+\beamer@sectionintoc {1}{Clasificación de funciones}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Funciones inyectivas, sobreyectivas y biyectivas}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Interpretación gráfica}{6}{0}{1}
+\beamer@sectionintoc {2}{Funciones monótonas}{7}{0}{2}
+\beamer@subsectionintoc {2}{1}{Crecientes y decrecientes}{7}{0}{2}
+\beamer@subsectionintoc {2}{2}{Problemas de aplicación}{9}{0}{2}
+\beamer@sectionintoc {3}{Función inversa}{10}{0}{3}
+\beamer@subsectionintoc {3}{1}{Definición y propiedades}{10}{0}{3}
+\beamer@sectionintoc {4}{Bibliografía}{12}{0}{4}

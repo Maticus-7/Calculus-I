@@ -1,0 +1,155 @@
+\documentclass[10pt, spanish]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+% Tema y color
+\usetheme{Madrid}
+\usecolortheme{default}
+
+% Datos de la presentación
+\title[Límites de funciones]{Cálculo I \\ Límites de funciones}
+\author[M. A. Molina]{Matihus Alberth Molina Larios}
+\institute[UNMSM]{
+	Universidad Nacional Mayor de San Marcos \\
+	Facultad de Ciencias Matemáticas \\
+	\texttt{matihus.molina@unmsm.edu.pe}
+}
+\date{\today}
+
+% Redefinir entornos para que se adapten a beamer
+\newtheorem{definicion}{Definición}
+\newtheorem{teorema}{Teorema}
+\newtheorem{corolario}{Corolario}
+\newtheorem{ejemplo}{Ejemplo}
+\newtheorem{nota}{Nota}
+
+% Opciones para que los teoremas aparezcan numerados dentro de cada sección
+\setbeamertemplate{theorem}[ams style]
+
+\begin{document}
+	
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+	\begin{frame}{Contenido}
+		\tableofcontents
+	\end{frame}
+	
+	\section{Introducción a los límites}
+	\begin{frame}{Motivación}
+		\begin{itemize}
+			\item El concepto de límite es fundamental para entender la continuidad, la derivada y la integral.
+			\item Surge al estudiar el comportamiento de una función cuando la variable independiente se aproxima a un valor.
+		\end{itemize}
+	\end{frame}
+	
+	\section{Definiciones}
+	\begin{frame}{Definición intuitiva}
+		\begin{definicion}[Límite de una función]
+			Decimos que $\displaystyle \lim_{x\to a} f(x) = L$ si los valores de $f(x)$ se acercan arbitrariamente a $L$ cuando $x$ se acerca suficientemente a $a$, sin importar que $f(a)$ esté definido o no.
+		\end{definicion}
+	\end{frame}
+	
+	\begin{frame}{Definición épsilon-delta}
+		\begin{definicion}[Límite (formal)]
+			Sea $f$ definida en un intervalo abierto que contiene a $a$, excepto posiblemente en $a$. Entonces
+			\[
+			\lim_{x\to a} f(x) = L
+			\]
+			si para todo $\varepsilon > 0$ existe $\delta > 0$ tal que si $0 < |x-a| < \delta$ entonces $|f(x)-L| < \varepsilon$.
+		\end{definicion}
+	\end{frame}
+	
+	\section{Teoremas fundamentales}
+	\begin{frame}{Teorema de unicidad del límite}
+		\begin{teorema}[Unicidad]
+			Si $\displaystyle \lim_{x\to a} f(x) = L_1$ y $\displaystyle \lim_{x\to a} f(x) = L_2$, entonces $L_1 = L_2$.
+		\end{teorema}
+		\begin{proof}
+			Supongamos $L_1 \neq L_2$. Sea $\varepsilon = |L_1 - L_2|/2 > 0$. Por definición, existen $\delta_1, \delta_2 > 0$ tales que:
+			\begin{align*}
+				0<|x-a|<\delta_1 &\Rightarrow |f(x)-L_1| < \varepsilon,\\
+				0<|x-a|<\delta_2 &\Rightarrow |f(x)-L_2| < \varepsilon.
+			\end{align*}
+			Tomando $\delta = \min\{\delta_1, \delta_2\}$, si $0<|x-a|<\delta$ entonces:
+			\[
+			|L_1-L_2| \le |f(x)-L_1| + |f(x)-L_2| < 2\varepsilon = |L_1-L_2|,
+			\]
+			contradicción. Por tanto $L_1 = L_2$.
+		\end{proof}
+	\end{frame}
+	
+	\begin{frame}{Teorema de conservación del signo}
+		\begin{teorema}
+			Si $\displaystyle \lim_{x\to a} f(x) = L$ y $L > 0$, entonces existe un entorno de $a$ (excepto $a$) donde $f(x) > 0$.
+		\end{teorema}
+		\begin{proof}
+			Tomando $\varepsilon = L/2 > 0$, existe $\delta > 0$ tal que $0<|x-a|<\delta$ implica $|f(x)-L| < L/2$. Entonces $f(x) > L - L/2 = L/2 > 0$.
+		\end{proof}
+	\end{frame}
+	
+	\section{Corolarios}
+	\begin{frame}{Corolario sobre límites de funciones acotadas}
+		\begin{corolario}
+			Si $\displaystyle \lim_{x\to a} f(x) = L$ y $f$ está acotada en un entorno de $a$, entonces $L$ está entre el ínfimo y el supremo de $f$ en dicho entorno.
+		\end{corolario}
+		\begin{proof}
+			Es consecuencia directa de la definición épsilon-delta y del teorema de conservación del signo para $f(x)-L$ y $L-f(x)$.
+		\end{proof}
+	\end{frame}
+	
+	\section{Ejemplos}
+	\begin{frame}{Ejemplo 1: Límite de una función lineal}
+		\begin{ejemplo}
+			Demostrar que $\displaystyle \lim_{x\to 2} (3x+1) = 7$.
+		\end{ejemplo}
+		\begin{proof}
+			Dado $\varepsilon > 0$, buscamos $\delta > 0$ tal que si $0<|x-2|<\delta$ entonces $|(3x+1)-7| = 3|x-2| < \varepsilon$. Basta tomar $\delta = \varepsilon/3$.
+		\end{proof}
+	\end{frame}
+	
+	\begin{frame}{Ejemplo 2: Límite de una función cuadrática}
+		\begin{ejemplo}
+			Calcular $\displaystyle \lim_{x\to 3} (x^2 - 4)$.
+		\end{ejemplo}
+		\begin{proof}
+			Intuitivamente, sustituimos $x=3$: $3^2-4 = 5$. Demostración: $|x^2-4 -5| = |x^2-9| = |x-3||x+3|$. Si restringimos $|x-3|<1$, entonces $|x+3|<7$, luego $|x^2-9| < 7|x-3|$. Dado $\varepsilon>0$, elegimos $\delta = \min\{1, \varepsilon/7\}$. Entonces $0<|x-3|<\delta$ implica $|x^2-9| < \varepsilon$.
+		\end{proof}
+	\end{frame}
+	
+	\begin{frame}{Ejemplo 3: Límite de una función trigonométrica}
+		\begin{ejemplo}
+			Evaluar $\displaystyle \lim_{x\to 0} \frac{\sen x}{x}$.
+		\end{ejemplo}
+		\begin{proof}
+			Se sabe por propiedades geométricas que $\cos x < \frac{\sen x}{x} < 1$ para $x$ cercano a $0$ ($x\neq 0$). Aplicando el teorema del sándwich, como $\lim_{x\to 0} \cos x = 1$, concluimos que el límite es $1$.
+		\end{proof}
+	\end{frame}
+	
+	\section{Propiedades de los límites}
+	\begin{frame}{Álgebra de límites}
+		\begin{teorema}[Operaciones con límites]
+			Si $\displaystyle \lim_{x\to a} f(x) = L$ y $\displaystyle \lim_{x\to a} g(x) = M$, entonces:
+			\begin{itemize}
+				\item $\displaystyle \lim_{x\to a} [f(x) + g(x)] = L + M$.
+				\item $\displaystyle \lim_{x\to a} [f(x) \cdot g(x)] = L \cdot M$.
+				\item $\displaystyle \lim_{x\to a} \frac{f(x)}{g(x)} = \frac{L}{M}$, si $M \neq 0$.
+			\end{itemize}
+		\end{teorema}
+	\end{frame}
+	
+	\section{Bibliografía}
+	\begin{frame}{Referencias}
+		\begin{thebibliography}{9}
+			\bibitem{spivak} Michael Spivak, \textit{Cálculo infinitesimal}, Editorial Reverté, 1998.
+			\bibitem{stewart} James Stewart, \textit{Cálculo de una variable}, Cengage Learning, 2017.
+			\bibitem{apostol} Tom M. Apostol, \textit{Cálculo}, Vol. I, Reverté, 2002.
+		\end{thebibliography}
+	\end{frame}
+	
+\end{document}

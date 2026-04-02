@@ -1,0 +1,10 @@
+\babel@toc {spanish}{}\relax 
+\beamer@sectionintoc {1}{Función exponencial}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Definición y propiedades}{3}{0}{1}
+\beamer@sectionintoc {2}{Función logarítmica}{5}{0}{2}
+\beamer@subsectionintoc {2}{1}{Definición como inversa de la exponencial}{5}{0}{2}
+\beamer@sectionintoc {3}{Funciones trigonométricas}{7}{0}{3}
+\beamer@subsectionintoc {3}{1}{Definiciones y propiedades básicas}{7}{0}{3}
+\beamer@sectionintoc {4}{Funciones trigonométricas inversas}{9}{0}{4}
+\beamer@subsectionintoc {4}{1}{Definiciones y dominios restringidos}{9}{0}{4}
+\beamer@sectionintoc {5}{Bibliografía}{11}{0}{5}
